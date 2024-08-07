@@ -1,7 +1,10 @@
+import Layout from "@/components/layout/Layout";
 
 
 export default function Home() {
   return (
+<Layout>
+
     <main
       className={`min-h-screen p-4 `}
     >
@@ -9,5 +12,7 @@ export default function Home() {
         
       </div>
     </main>
-  );
+ 
+</Layout>
+);
 }
