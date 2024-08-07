@@ -4,6 +4,7 @@ import React, { Children } from 'react'
 import { VscListSelection } from "react-icons/vsc";
 import { BiMessageSquareAdd } from "react-icons/bi";
 import { RxDashboard } from "react-icons/rx";
+import Dropdown from '../DropDown';
 
 
 
@@ -17,11 +18,9 @@ function Layout({ children }) {
                     </p>
                     <p className='text-[10px] text-center py-1 font-Dana  text-[#5115c2]'>موفقیت : نظم , تلاش , تمرین</p>
                 </div>
-                <div className='flex flex-wrap sm:flex-row p-1  items-center gap-y-1 justify-center sm:gap-x-3 text-[10px] lg:text-xl'>
-                    <button className='sm:p-1 sm:px-4 rounded-md w-full  sm:w-fit bg-[#5115c2]'>
-                    <Link href="/signup"> ورود | ثبت نام</Link>                    
-                    </button>
-                    <button className='sm:p-1 sm:px-4 w-full sm:w-fit rounded-md bg-[#5115c2]'>خروج</button>
+
+                <div className='p-1 text-[12px] lg:text-xl'>
+                    <Dropdown />
                 </div>
             </header>
             <div className='flex'>
