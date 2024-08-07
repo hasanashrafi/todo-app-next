@@ -10,25 +10,25 @@ import { RxDashboard } from "react-icons/rx";
 function Layout({ children }) {
     return (
         <div className='font-Dana p-2'>
-            <header className='flex justify-between items-center  h-20 py-6 px-2.5 text-white text-lg'>
-                <div className='py-2 '>
-                    <p className="text-lg lg:text-2xl font-DanaDemiBold text-[#5115c2]">
+            <header className='flex justify-between items-center  h-24 p-4 px-2.5 text-white text-lg'>
+                <div className='py-2 flex flex-col '>
+                    <p className="text-sm sm:text-2xl font-DanaDemiBold text-[#5115c2]">
                         Todo App | فهرست کارها
                     </p>
-                    <p className='text-sm text-center py-1 font-DanaDemiBold text-[#5115c2]'>موفقیت : نظم , تلاش , تمرین</p>
+                    <p className='text-[10px] text-center py-1 font-Dana  text-[#5115c2]'>موفقیت : نظم , تلاش , تمرین</p>
                 </div>
-                <div className='flex items-center gap-x-3 text-sm lg:text-xl'>
-                    <button className='p-1 px-4 rounded-md bg-[#5115c2]'>
+                <div className='flex flex-wrap sm:flex-row p-1  items-center gap-y-1 justify-center sm:gap-x-3 text-[10px] lg:text-xl'>
+                    <button className='sm:p-1 sm:px-4 rounded-md w-full  sm:w-fit bg-[#5115c2]'>
                     <Link href="/signup"> ورود | ثبت نام</Link>                    
                     </button>
-                    <button className='p-1 px-4 rounded-md bg-[#5115c2]'>خروج</button>
+                    <button className='sm:p-1 sm:px-4 w-full sm:w-fit rounded-md bg-[#5115c2]'>خروج</button>
                 </div>
             </header>
             <div className='flex'>
                 <section className=' flex  w-full'>
                     <div className='relative w-full'>
                         {children}
-                        <div className='backdrop-filter backdrop-blur-md bg-opacity-20 bg-clip-padding fixed  bottom-20 right-0 left-0 w-[60%] bg-[#5115c2] items-center flex justify-center mx-auto mb-5 self-end h-fit  rounded-full  p-2'>
+                        <div className='backdrop-filter backdrop-blur-md bg-opacity-20 bg-clip-padding fixed  bottom-20 right-0 left-0 w-full sm:w-[60%] bg-[#5115c2] items-center flex justify-center mx-auto mb-5 self-end h-fit  rounded-full  p-2'>
 
                             <ul className='flex justify-around  items-center '>
                                 <li
