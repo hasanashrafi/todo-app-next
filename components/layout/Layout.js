@@ -18,7 +18,9 @@ function Layout({ children }) {
                     <p className='text-sm text-center py-1 font-DanaDemiBold text-[#5115c2]'>موفقیت : نظم , تلاش , تمرین</p>
                 </div>
                 <div className='flex items-center gap-x-3'>
-                    <button className='p-1 px-4 rounded-md bg-[#5115c2]'>ورود</button>
+                    <button className='p-1 px-4 rounded-md bg-[#5115c2]'>
+                    <Link href="/signup">ورود</Link>                    
+                    </button>
                     <button className='p-1 px-4 rounded-md bg-[#5115c2]'>خروج</button>
                 </div>
             </header>
@@ -26,7 +28,7 @@ function Layout({ children }) {
                 <section className=' flex  w-full'>
                     <div className='relative w-full'>
                         {children}
-                        <div className='backdrop-filter backdrop-blur-lg bg-opacity-20 bg-clip-padding fixed  bottom-20 right-0 left-0 w-[50%] bg-indigo-400 items-center flex justify-center mx-auto mb-5 self-end h-fit  rounded-full  p-2'>
+                        <div className='backdrop-filter backdrop-blur-md bg-opacity-20 bg-clip-padding fixed  bottom-20 right-0 left-0 w-[50%] bg-[#5115c2] items-center flex justify-center mx-auto mb-5 self-end h-fit  rounded-full  p-2'>
 
                             <ul className='flex justify-around w-full items-center'>
                                 <li
