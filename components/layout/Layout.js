@@ -11,15 +11,15 @@ import Dropdown from '../DropDown';
 function Layout({ children }) {
     return (
         <div className='font-Dana p-2'>
-            <header className='flex justify-between items-center  h-24 p-4 px-2.5 text-white text-lg'>
-                <div className='py-2 flex flex-col '>
-                    <p className="text-sm sm:text-2xl font-DanaDemiBold text-[#5115c2]">
+            <header className='flex justify-between items-center  h-24  px-2.5 text-white text-lg'>
+                <div className='flex flex-col items-center justify-center  '>
+                    <p className="text-lg sm:text-2xl font-DanaDemiBold text-[#5115c2]">
                         Todo App | فهرست کارها
                     </p>
-                    <p className='text-[10px] text-center py-1 font-Dana  text-[#5115c2]'>موفقیت : نظم , تلاش , تمرین</p>
+                    <p className='text-[10px] text-center  font-MorabbaLight  text-[#726c7e]'>موفقیت : نظم , تلاش , تمرین</p>
                 </div>
 
-                <div className='p-1 text-[12px] lg:text-xl'>
+                <div className='self-center p-1  text-[12px] lg:text-xl'>
                     <Dropdown />
                 </div>
             </header>

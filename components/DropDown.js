@@ -14,7 +14,7 @@ const Dropdown = () => {
     };
 
     return (
-        <div className='w-full py-6 pb-8'>
+        <div className='w-full  '>
             <div className="relative inline-block">
                 <button
                     type="button"
@@ -23,33 +23,33 @@ const Dropdown = () => {
                 >
                     ورود | ثبت نام 
 
-                    <svg class="w-2.5 h-2.5 ml-2.5"
+                    <svg className="w-2.5 h-2.5 ml-2.5"
                         aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 10 6">
                         <path stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
                             d="m1 1 4 4 4-4" />
                     </svg>
                 </button>
 
                 {isOpen && (
-                    <div className="origin-top-right left-0 absolute text-[#5115c2]    mt-2 w-44 rounded-lg shadow-lg p-4 ring-1 ring-black ring-opacity-5">
+                    <div className="origin-top-right left-0 absolute text-[#5115c2]   mt-2 w-44 rounded-lg shadow-lg p-2 ring-1 ring-black ring-opacity-5">
                         <ul
-                            className='flex  justify-between  items-center p-1  w-full'
+                            className='flex  justify-between  items-center   w-full'
                             role="menu"
                             aria-orientation="vertical"
                             aria-labelledby="options-menu"
                         >
-                            <li className='w-full text-center text-sm p-1 '>
-                                <Link href="/signup">ثبت نام</Link>
+                            <li className='w-full text-center text-sm  '>
+                                <Link href="/signup" className='p-1'>ثبت نام</Link>
                             </li>
                             <span className=''>|</span>
-                            <li className='w-full text-center text-sm p-1'>
-                                <Link href="/signin">ورود</Link>
+                            <li className='w-full text-center text-sm  '>
+                                <Link href="/signin" className='p-1'>ورود</Link>
                             </li>
 
                         </ul>
