@@ -19,7 +19,7 @@ function Layout({ children }) {
                 </div>
                 <div className='flex items-center gap-x-3'>
                     <button className='p-1 px-4 rounded-md bg-[#5115c2]'>
-                    <Link href="/signup">ورود</Link>                    
+                    <Link href="/signup"> ورود | ثبت نام</Link>                    
                     </button>
                     <button className='p-1 px-4 rounded-md bg-[#5115c2]'>خروج</button>
                 </div>
@@ -28,25 +28,25 @@ function Layout({ children }) {
                 <section className=' flex  w-full'>
                     <div className='relative w-full'>
                         {children}
-                        <div className='backdrop-filter backdrop-blur-md bg-opacity-20 bg-clip-padding fixed  bottom-20 right-0 left-0 w-[50%] bg-[#5115c2] items-center flex justify-center mx-auto mb-5 self-end h-fit  rounded-full  p-2'>
+                        <div className='backdrop-filter backdrop-blur-md bg-opacity-20 bg-clip-padding fixed  bottom-20 right-0 left-0 w-[60%] bg-[#5115c2] items-center flex justify-center mx-auto mb-5 self-end h-fit  rounded-full  p-2'>
 
-                            <ul className='flex justify-around w-full items-center'>
+                            <ul className='flex justify-around  items-center '>
                                 <li
-                                    className='hover:bg-indigo-500 px-4 py-1 rounded-full text-lg font-medium text-white my-2 flex items-center'>
-                                    <VscListSelection className='text-2xl' />
+                                    className='hover:bg-indigo-500 px-4 py-1 rounded-full text-sm lg:text-lg font-medium text-white my-2 flex items-center'>
+                                    <VscListSelection className='lg:text-2xl' />
                                     <Link href="/" className='mr-2.5'>
                                         کار ها
                                     </Link>
                                 </li>
-                                <li className='hover:bg-indigo-500 px-4 py-1 rounded-full text-lg font-medium text-white my-2 flex items-center'>
-                                    <BiMessageSquareAdd className='text-2xl' />
+                                <li className='hover:bg-indigo-500 px-4 py-1 rounded-full text-sm lg:text-lg  font-medium text-white my-2 flex items-center'>
+                                    <BiMessageSquareAdd className='lg:text-2xl' />
 
                                     <Link href="/add-todo" className='mr-2.5'>
                                         کار جدید
                                     </Link>
                                 </li>
-                                <li className='hover:bg-indigo-500 px-4 py-1 rounded-full text-lg font-medium text-white my-2 flex items-center'>
-                                    <RxDashboard className='text-2xl' />
+                                <li className='hover:bg-indigo-500 px-4 py-1 rounded-full text-sm lg:text-lg  font-medium text-white my-2 flex items-center'>
+                                    <RxDashboard className=' lg:text-2xl' />
                                     <Link href="/profile" className='mr-2.5'>
                                         پروفایل
                                     </Link>
