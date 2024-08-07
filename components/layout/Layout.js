@@ -12,12 +12,12 @@ function Layout({ children }) {
         <div className='font-Dana p-2'>
             <header className='flex justify-between items-center  h-20 py-6 px-2.5 text-white text-lg'>
                 <div className='py-2 '>
-                    <p className="text-2xl font-DanaDemiBold text-[#5115c2]">
+                    <p className="text-lg lg:text-2xl font-DanaDemiBold text-[#5115c2]">
                         Todo App | فهرست کارها
                     </p>
                     <p className='text-sm text-center py-1 font-DanaDemiBold text-[#5115c2]'>موفقیت : نظم , تلاش , تمرین</p>
                 </div>
-                <div className='flex items-center gap-x-3'>
+                <div className='flex items-center gap-x-3 text-sm lg:text-xl'>
                     <button className='p-1 px-4 rounded-md bg-[#5115c2]'>
                     <Link href="/signup"> ورود | ثبت نام</Link>                    
                     </button>
