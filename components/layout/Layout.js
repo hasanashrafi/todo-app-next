@@ -6,7 +6,7 @@ import Dropdown from '../templates/DropDown';
 
 
 function Layout({ children }) {
-    
+
     return (
         <div className='font-Dana p-2'>
             <header className='flex justify-between items-center  h-24  px-2.5 text-white text-lg'>
