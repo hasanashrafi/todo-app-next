@@ -12,12 +12,13 @@ function SigninPage() {
     const [loginStatus, setLoginStatus] = useState("")
 
     const router = useRouter()
-    const {status} = useSession()
+    const { status } = useSession()
 
-    useEffect(()=>{
-        if(status==="authenticated")router.replace("/")
-    },[status])
-    const submitHandler = async () => {
+    useEffect(() => {
+        if (status === "authenticated") router.replace("/")
+    }, [status])
+    const submitHandler = async (e) => {
+        e.preventDefault()
         const res = await signIn("credentials", {
             email,
             password,
