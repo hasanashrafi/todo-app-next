@@ -35,10 +35,10 @@ const Dropdown = () => {
                 authorization === "authenticated" ? (
                     <button
                         onClick={signOutHandler}
-                        className=" px-2 text-center gap-x-1.5 py-2 text-white bg-[#c20606] hover:bg-[#800b0b]  focus:outline-none font-medium rounded-xl inline-flex items-center"
+                        className="  text-center p-1 gap-x-1 text-white bg-[#c20606] hover:bg-[#800b0b]  focus:outline-none font-medium rounded-xl inline-flex items-center"
                     >
-                    خروج<CiLogout  className='text-xl'/>
-
+خروج
+                    <CiLogout  className='text-lg'/>
                     </button>
                 ) : null
             }
