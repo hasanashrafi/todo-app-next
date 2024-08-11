@@ -7,6 +7,9 @@ import { GrInProgress } from "react-icons/gr";
 import { MdOutlineRateReview } from "react-icons/md";
 import { IoMdDoneAll } from "react-icons/io";
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function AddTodoPage() {
     const [title, setTitle] = useState("")
     const [status, setStatus] = useState("todo")
@@ -23,14 +26,14 @@ function AddTodoPage() {
         if (data.status === "success") {
             setTitle("")
             setStatus("todo")
-            toast.success("Todo Added")
+            toast.success("با موفقیت اضافه شد")
         }
-
 
     }
 
     return (
         <div className='min-h-screen font-DanaDemiBold p-5'>
+           <ToastContainer/>
             <h2 className='flex gap-x-2 items-center'>
                 <GrAddCircle />
                 اضافه کردن کار جدید
