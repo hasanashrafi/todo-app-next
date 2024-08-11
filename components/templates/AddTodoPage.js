@@ -33,8 +33,8 @@ function AddTodoPage() {
 
     return (
         <div className='min-h-screen font-DanaDemiBold p-5'>
-           <ToastContainer/>
             <h2 className='flex gap-x-2 items-center'>
+           <ToastContainer />
                 <GrAddCircle />
                 اضافه کردن کار جدید
             </h2>
@@ -58,8 +58,8 @@ function AddTodoPage() {
                 </div>
 
 
-                <div className='flex gap-x-3  w-full p-3 mt-4  justify-between'>
-                    <RadioButton status={status} setStatus={setStatus} title="کار" value="todo" >
+                <div className='flex flex-wrap  gap-y-2 gap-x-3   p-3 mt-4  justify-center'>
+                    <RadioButton status={status} setStatus={setStatus} title="کار جدید " value="todo" >
                         <BsAlignStart />
                     </RadioButton>
 

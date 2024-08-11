@@ -8,7 +8,8 @@ function RadioButton({ status, setStatus, value, title, children }) {
         <div className='flex gap-x-3'>
 
             <div className=' relative rounded-md shadow-sm'>
-                <div className={`flex gap-x-2 border w-fit p-2 rounded-md  ${value === "todo" ? "bg-green-600" : null
+                <div className={`flex  gap-x-2 border w-36 justify-center p-2 rounded-md  
+                ${value === "todo" ? "bg-green-600" : null
                         || value === "inprogress" ? "bg-blue-600 " : null
                             || value === "review" ? "bg-yellow-600 " : null
                                 || value === "done" ? "bg-violet-600 " : null}`}>
