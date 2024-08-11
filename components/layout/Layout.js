@@ -39,14 +39,13 @@ function Layout({ children }) {
             </header>
 
             <div className='flex'>
-                <section className=' flex  w-full'>
+                <section className='pb-16 flex  w-full'>
                     <div className=' w-full'>
                         {children}
-
                     </div>
-
                 </section>
-                <div className='backdrop-filter backdrop-blur-md bg-opacity-20 bg-clip-padding fixed  bottom-10 right-0 left-0 w-full sm:w-[60%] bg-[#5115c2] items-center flex justify-center mx-auto mb-5 self-end h-fit  rounded-full  p-2'>
+
+                <div className='backdrop-filter backdrop-blur-md bg-opacity-20 bg-clip-padding fixed  bottom-10 right-0 left-0 w-[95%] sm:w-[55%] bg-[#5115c2] items-center flex justify-center mx-auto mb-5 self-end h-12  rounded-full  p-2'>
 
                     <ul className='flex justify-around  items-center '>
                         <li
