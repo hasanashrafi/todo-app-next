@@ -1,5 +1,7 @@
 import User from "@/models/User";
 import connectDB from "@/utils/connectDB";
+import { sortTodos } from "@/utils/sortTodos";
+
 
 import { getSession } from "next-auth/react";
 
@@ -10,7 +12,7 @@ async function handler(req, res) {
         console.log(error);
         return res.status(500).json({ status: "failed", message: "Error in connecting to DB" })
     }
-  
+
     const session = await getSession({ req })
     console.log(session);
 
@@ -27,13 +29,12 @@ async function handler(req, res) {
             .json({ status: "failed", message: "User doesn't exist" })
     }
 
-    if (method.req === "POST") {
+    if (req.method === "POST") {
         const { title, status } = req.body;
         if (!title || !status) {
             return res
                 .status(422)
                 .json({ status: "failed", message: "invalid data!" })
-
         }
 
         user.todos.push({ title: title, status: status })
@@ -42,6 +43,9 @@ async function handler(req, res) {
         res.status(201)
             .json({ status: "success", message: "Todo created!" })
 
+    } else if (req.method === "GET") {
+        const sortedData = sortTodos(user.todos)
+        res.status(200).json({ status: "success", data: { todos: sortedData } })
     }
 
 }
