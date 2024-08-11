@@ -14,8 +14,7 @@ function AddTodoPage() {
     const [title, setTitle] = useState("")
     const [status, setStatus] = useState("todo")
 
-    const addHandler = async (e) => {
-        e.preventDefault()
+    const addHandler = async () => {
         const res = await fetch("/api/todos", {
             method: "POST",
             body: JSON.stringify({ title, status }),
