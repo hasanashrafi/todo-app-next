@@ -9,33 +9,32 @@ import { verifyPassword } from "@/utils/auth";
 
 const authOptions = {
     session: { strategy: "jwt" },
-   
-        providers: [
-            CredentialsProvider({
-                async authorize(credentials, req) {
-                    const { email, password } = credentials;
 
-                    try {
-                        await connectDB()
-                    } catch (error) {
-                        throw new Error("Error in connect DB")
-                    }
+    providers: [
+        CredentialsProvider({
+            async authorize(credentials, req) {
+                const { email, password } = credentials;
 
-                    if (!email || !password) throw new Error("Enter Email and password")
+                try {
+                    await connectDB()
+                } catch (error) {
+                    throw new Error("Error in connect DB")
+                }
 
-                    const user = await User.findOne({ email: email })
-                    if (!user) throw new Error("User doesn't Exist")
+                if (!email || !password) throw new Error("Enter Email and password")
 
-                    const isValid = await verifyPassword(password, user.password)
-                    if (!isValid) throw new Error("Email or password incorrect")
+                const user = await User.findOne({ email: email })
+                if (!user) throw new Error("User doesn't Exist")
 
-                    return { email }
-                },
-            }),
-        ],
-       
-    }
+                const isValid = await verifyPassword(password, user.password)
+                if (!isValid) throw new Error("Email or password incorrect")
 
+                return { email }
+            },
+        }),
+    ],
+
+}
 
 
 export default NextAuth(authOptions)
