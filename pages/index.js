@@ -1,4 +1,5 @@
 import Layout from "@/components/layout/Layout";
+import HomePage from "@/components/templates/HomePage";
 
 
 export default function Home() {
@@ -9,8 +10,8 @@ export default function Home() {
     <main
       className={`min-h-screen p-4 `}
     >
-      <div className="flex mt-20 rounded justify-center bg-[#7f50ff] h-full font-mono text-sm lg:flex">
-        
+      <div className="flex  rounded justify-center  h-full font-mono text-sm lg:flex">
+        <HomePage/>
       </div>
     </main>
  
