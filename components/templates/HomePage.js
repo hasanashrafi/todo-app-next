@@ -21,7 +21,7 @@ function HomePage() {
                [ border-[1px] border-solid border-white border-opacity-30 ]
                [ shadow-black/70 shadow-2xl ] w-96 bg-green-600   m-2  text-white drop-shadow-lg shadow-dark rounded '>
                 <p className='text-center py-1 bg-green-600 rounded-md'>کار</p>
-                <Tasks data={todos.todo} />
+                <Tasks data={todos.todo} fetchTodos={fetchTodos} next="inprogress" />
             </div>
 
             <div className=' backdrop-blur-lg
@@ -30,7 +30,7 @@ function HomePage() {
                [ border-[1px] border-solid border-white border-opacity-30 ]
                [ shadow-black/70 shadow-2xl ] w-96 bg-blue-600   m-2  text-white drop-shadow-lg shadow-dark rounded '>
                 <p className='text-center py-1 bg-blue-600 rounded-md'>در حال انجام</p>
-                <Tasks data={todos.inprogress} />
+                <Tasks data={todos.inprogress} fetchTodos={fetchTodos} next="review" back="todo"/>
             </div>
 
             <div className=' backdrop-blur-lg
@@ -39,7 +39,7 @@ function HomePage() {
                [ border-[1px] border-solid border-white border-opacity-30 ]
                [ shadow-black/70 shadow-2xl ] w-96 bg-yellow-600   m-2  text-white drop-shadow-lg shadow-dark rounded '>
                 <p className='text-center py-1 bg-yellow-600 rounded-md'>در حال بررسی</p>
-                <Tasks data={todos.review} />
+                <Tasks data={todos.review} fetchTodos={fetchTodos} next="done" back="inprogress"/>
             </div>
             
             <div className=' backdrop-blur-lg
@@ -48,7 +48,7 @@ function HomePage() {
                [ border-[1px] border-solid border-white border-opacity-30 ]
                [ shadow-black/70 shadow-2xl ] w-96 bg-violet-600   m-2  text-white drop-shadow-lg shadow-dark rounded '>
                 <p className='text-center py-1 bg-violet-600 rounded-md'>انجام شده</p>
-                <Tasks data={todos.done} />
+                <Tasks data={todos.done} fetchTodos={fetchTodos}  back="review"/>
             </div>
 
         </div>
