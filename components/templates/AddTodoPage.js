@@ -52,26 +52,25 @@ function AddTodoPage() {
                             placeholder=" عنوان را وارد کنید ...."
                             type="text"
                             className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
-
                     </div>
                 </div>
 
 
                 <div className='flex flex-wrap  gap-y-2 gap-x-3   p-3 mt-4  justify-center'>
                     <RadioButton status={status} setStatus={setStatus} title="کار جدید " value="todo" >
-                        <BsAlignStart />
+                        <BsAlignStart className=''/>
                     </RadioButton>
 
                     <RadioButton status={status} setStatus={setStatus} title="درحال انجام" value="inprogress">
-                        <GrInProgress />
+                        <GrInProgress className=''/>
                     </RadioButton>
 
                     <RadioButton status={status} setStatus={setStatus} title="در حال بررسی" value="review">
-                        <MdOutlineRateReview />
+                        <MdOutlineRateReview className=''/>
                     </RadioButton>
 
                     <RadioButton status={status} setStatus={setStatus} title="انجام شده" value="done">
-                        <IoMdDoneAll />
+                        <IoMdDoneAll className=''/>
                     </RadioButton>
 
                 </div>
