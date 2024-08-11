@@ -20,21 +20,6 @@ function Layout({ children }) {
 
                 <div className='self-center p-1 text-[12px] lg:text-xl'>
                     <Dropdown />
-                    {/* <button className=' group relative p-2  border text-lg  bg-[#5115c2] rounded-full'>
-                        <FaUser />
-                        <div className='z-10 flex justify-center items-center w-28 text-sm gap-x-2 left-0  invisible text-white absolute  bg-[#9764fd] drop-shadow-lg  mt-3 p-2 rounded-lg   shadow-xl group-focus:visible'>
-                            <Link href="/signin" className=' hover:text-[#5115c2] ' >
-                                ورود
-                            </Link>
-                           
-                            <Link href="/signup" className=' hover:text-[#5115c2]'>
-                                ثبت نام
-                            </Link>
-                        </div>
-                    </button> */}
-
-
-
                 </div>
             </header>
 
