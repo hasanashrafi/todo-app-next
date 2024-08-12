@@ -22,6 +22,7 @@ function HomePage() {
                [ shadow-black/70 shadow-2xl ] w-96 bg-green-600   m-2  text-white drop-shadow-lg shadow-dark rounded '>
                 <p className='text-center py-1 bg-green-600 rounded-md'>کار</p>
                 <Tasks data={todos.todo} fetchTodos={fetchTodos} next="inprogress" />
+           
             </div>
 
             <div className=' backdrop-blur-lg
