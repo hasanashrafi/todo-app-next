@@ -5,6 +5,7 @@ import { signIn, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import "react-toastify/dist/ReactToastify.css";
+
 function SigninPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -28,8 +29,7 @@ function SigninPage() {
     if (!res.error) router.push("/");
     setLoginStatus(res);
   };
-  console.log(status);
-
+ 
   const notify = () =>
     toast.success("", {
       position: "top-center",
