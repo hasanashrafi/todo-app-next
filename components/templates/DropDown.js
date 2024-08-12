@@ -18,32 +18,28 @@ const Dropdown = () => {
         setIsOpen(false);
     };
 
-    const [authorization, setAuthorization] = useState("")
     const { status } = useSession()
-    useEffect(() => {
-        if (status === "unauthenticated") setAuthorization("unauthenticated")
-        if (status === "authenticated") setAuthorization("authenticated")
-    }, [status])
-
-    const signOutHandler = async() => {
+    
+    const signOutHandler = async () => {
         await signOut()
     }
 
     return (
         <div className='w-full  '>
             {
-                authorization === "authenticated" ? (
+                status === "authenticated" ? (
                     <button
                         onClick={signOutHandler}
                         className="  text-center p-1 gap-x-1 text-white bg-[#c20606] hover:bg-[#800b0b]  focus:outline-none font-medium rounded-xl inline-flex items-center"
                     >
-خروج
-                    <CiLogout  className='text-lg'/>
+                        خروج
+                        <CiLogout className='text-lg' />
                     </button>
                 ) : null
             }
+            
             {
-                authorization === "unauthenticated" ? (
+                status === "unauthenticated" ? (
                     <div className="relative inline-block">
                         <button
                             type="button"
