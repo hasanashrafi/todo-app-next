@@ -16,6 +16,7 @@ function SigninPage() {
   useEffect(() => {
     if (status === "authenticated") router.replace("/");
   }, [status]);
+  
   const submitHandler = async (e) => {
     e.preventDefault();
     const res = await signIn("credentials", {

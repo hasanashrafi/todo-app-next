@@ -29,7 +29,8 @@ function ProfilePage() {
         }
     }
 
-    const submitHandler = async () => {
+    const submitHandler = async (e) => {
+        e.preventDefault()
         const res = await fetch("/api/profile", {
             method: "POST", body: JSON.stringify({
                 name,
