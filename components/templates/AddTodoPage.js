@@ -9,6 +9,7 @@ import { IoMdDoneAll } from "react-icons/io";
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Layout from '../layout/Layout';
 
 function AddTodoPage() {
     const [title, setTitle] = useState("")
@@ -31,7 +32,8 @@ function AddTodoPage() {
     }
 
     return (
-        <div className='min-h-screen font-DanaDemiBold p-5'>
+       <Layout>
+         <div className='min-h-screen font-DanaDemiBold p-5'>
             <h2 className='flex gap-x-2 items-center'>
            <ToastContainer />
                 <GrAddCircle />
@@ -81,6 +83,7 @@ function AddTodoPage() {
                 </button>
             </div>
         </div>
+       </Layout>
     );
 }
 
