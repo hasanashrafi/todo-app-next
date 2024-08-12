@@ -15,9 +15,7 @@ function SignupPage() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
-
     const router = useRouter()
-
     const { status } = useSession()
 
     useEffect(() => {
@@ -38,7 +36,6 @@ function SignupPage() {
             headers: { "Content-Type": "application/json" }
         })
         const data = await res.json()
-        console.log(data);
 
         if (data.status === "success") router.push("/signin")
         if (data.status === "success") {
@@ -54,8 +51,6 @@ function SignupPage() {
                 <h2 className="mt-6 text-center text-3xl leading-9 font-extrabold text-gray-900">
                     ایجاد حساب کاربری
                 </h2>
-
-
                 <p className="mt-2  text-center text-sm leading-5 text-gray-500 max-w">
                     یا
                     <Link href="signin"
