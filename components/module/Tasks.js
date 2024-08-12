@@ -1,3 +1,5 @@
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React from 'react'
 import { FcTodoList } from "react-icons/fc";
 import { GrFormNextLink } from "react-icons/gr";
@@ -14,6 +16,15 @@ function Tasks({ data, next, back, fetchTodos }) {
         const data = await res.json()
         if (data.status === "success") fetchTodos()
     }
+
+    const detailHandler = (id) => {
+    
+        fetch(`/api/todos/${id}`)
+            .then((res) => res.json())
+            .then((data) => console.log(data.data))
+
+    }
+
     return (
         <div className='flex flex-col gap-y-2 p-3 items-center justify-center  rounded '>
             {
@@ -26,29 +37,30 @@ function Tasks({ data, next, back, fetchTodos }) {
                                         || i.status === "done" ? "bg-violet-600" : null}`
                         }>
                         </span>
+                        <button onClick={() => detailHandler(i._id)}>Detail</button>
                         <div className='flex justify-between items-center my-4 border p-2 rounded bg-slate-200'>
                             <p className=''>{i.title}</p>
                             <FcTodoList className='self-end text-xl' />
                         </div>
                         <div className='flex justify-between my-2.5 items-center p-1'>
                             {
+                                back ? (
+                                    <button
+                                        onClick={() => changeStatus(i._id, back)}
+                                        className="flex gap-x-1 items-center  bg-transparent hover:bg-red-500 text-red-700 font-semibold hover:text-white p-1  border border-red-500 hover:border-transparent rounded">
+                                        <GrFormNextLink className=' text-xl  ' />
+                                        قبلی
+                                    </button>
+                                ) : null
+                            }
+                            {
                                 next ? (
                                     <button
                                         onClick={() => changeStatus(i._id, next)}
 
                                         className="flex gap-x-1 items-center   bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white p-1 border border-blue-500 hover:border-transparent rounded">
-                                        <GrFormNextLink className='text-xl ' />
                                         بعدی
-                                    </button>
-                                ) : null
-                            }
-                            {
-                                back ? (
-                                    <button
-                                        onClick={() => changeStatus(i._id, back)}
-                                        className="flex gap-x-1 items-center  bg-transparent hover:bg-red-500 text-red-700 font-semibold hover:text-white p-1  border border-red-500 hover:border-transparent rounded">
-                                        قبلی
-                                        <GrFormNextLink className=' text-xl rotate-180 ' />
+                                        <GrFormNextLink className='text-xl rotate-180 ' />
                                     </button>
                                 ) : null
                             }
