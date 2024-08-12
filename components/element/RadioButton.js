@@ -5,8 +5,7 @@ import React from 'react';
 function RadioButton({ status, setStatus, value, title, children }) {
 
     return (
-        <div className='flex gap-x-3'>
-
+        <div className='flex gap-x-3 '>
             <div className=' relative rounded-md shadow-sm'>
                 <div className={`flex  gap-x-2 border w-36  justify-between p-2 rounded-md  
                 ${value === "todo" ? "bg-green-600" : null
@@ -15,7 +14,7 @@ function RadioButton({ status, setStatus, value, title, children }) {
                                 || value === "done" ? "bg-violet-600 " : null}`}>
 
                     <label htmlFor={value}
-                        className="flex gap-x-2 text-sm font-medium leading-4  text-white">
+                        className="flex gap-x-1 text-sm font-medium leading-tight  text-white">
                         {children}
                         {title}
                     </label>
