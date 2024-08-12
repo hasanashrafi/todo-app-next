@@ -44,10 +44,7 @@ function SignupPage() {
         if (data.status === "success") {
             toast.success("User create")
         }
-
     }
-
-
 
     return (
         <div className="font-DanaDemiBold min-h-screen bg-gradient-to-t from-[#5d0efa] to-[#ebe7ff] flex flex-col justify-center py-12 sm:px-6 lg:px-8">
