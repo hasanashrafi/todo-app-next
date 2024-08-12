@@ -1,11 +1,10 @@
 import React from 'react'
-import { RiMastodonLine } from "react-icons/ri";
+import { FcTodoList } from "react-icons/fc";
 import { GrFormNextLink } from "react-icons/gr";
 
 
 function Tasks({ data, next, back, fetchTodos }) {
-    console.log(data)
-
+   
     const changeStatus = async (id, status) => {
         const res = await fetch("/api/todos", {
             method: "PATCH",
@@ -25,9 +24,12 @@ function Tasks({ data, next, back, fetchTodos }) {
                                 || i.status === "inprogress" ? "bg-blue-600" : null
                                     || i.status === "review" ? "bg-yellow-600" : null
                                         || i.status === "done" ? "bg-violet-600" : null}`
-                        }></span>
-                        <RiMastodonLine className='self-end text-xl' />
-                        <p className=''>{i.title}</p>
+                        }>
+                        </span>
+                        <div className='flex justify-between items-center my-4 border p-2 rounded bg-slate-200'>
+                            <p className=''>{i.title}</p>
+                            <FcTodoList className='self-end text-xl' />
+                        </div>
                         <div className='flex justify-between my-2.5 items-center p-1'>
                             {
                                 next ? (
@@ -37,7 +39,6 @@ function Tasks({ data, next, back, fetchTodos }) {
                                         className="flex gap-x-1 items-center   bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white p-1 border border-blue-500 hover:border-transparent rounded">
                                         <GrFormNextLink className='text-xl ' />
                                         بعدی
-
                                     </button>
                                 ) : null
                             }
