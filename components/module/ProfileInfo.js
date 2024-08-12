@@ -3,7 +3,7 @@ import React from 'react'
 import Layout from '../layout/Layout'
 
 function ProfileInfo({ profileData }) {
-    console.log(profileData)
+  
     return (
         <Layout>
             <div className='min-h-screen '>
