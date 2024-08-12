@@ -29,7 +29,8 @@ const userSchema = new Schema({
     },
     todos: [{
         title: String,
-        status: String
+        status: String,
+        description: String,
     }],
     createdAt: {
         type: Date,
