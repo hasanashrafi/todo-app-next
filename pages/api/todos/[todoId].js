@@ -13,17 +13,19 @@ async function handler(req, res) {
 
     if (req.method === "GET") {
         try {
-            console.log(id)
-            const todoData = await User.findOne({"todos._id":id})
-            console.log(todoData,"hi")
-          
-            return res.status(200).json({ status: "success", data: todoData })
+            const todoData = await User.findOne({ "todos._id": id })
+            if (todoData) {
+                const todo = todoData.todos.find(todo => todo._id.toString() === id);
+                console.log('Todo found:', todo);
+                return res.status(200).json({ status: "success", data: todo })
+            } else {
+                console.log('No user found with the specified todo ID.');
+            }
         } catch (error) {
             console.log(error)
             return res.status(401).json({ status: "failed", message: "Error in find" })
 
         }
-
     }
 }
 export default handler
