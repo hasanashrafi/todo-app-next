@@ -32,7 +32,15 @@ async function handler(req, res) {
         const { title, status, description } = req.body;
 
         console.log({ title, status, description })
-        
+        const session = await getSession({ req })
+        console.log(session);
+
+        if (!session) {
+            return res
+                .status(401)
+                .json({ status: "failed", message: "You are not logged in" })
+        }
+
         if (!title || !status) {
             return res
                 .status(422)
