@@ -10,7 +10,6 @@ import 'react-toastify/dist/ReactToastify.css';
 function SigninPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [loginStatus, setLoginStatus] = useState("");
 
   const router = useRouter();
   const { status } = useSession();
@@ -23,16 +22,15 @@ function SigninPage() {
     const res = await signIn("credentials", {
       email,
       password,
-      redirect: false
+      redirect: false,
     });
 
     if (!res.error) router.push("/");
     if (!res.error) toast.success("You are logged in");
-    if (res.error) toast.success(error);
+    if (res.error) toast.error("email or password incorrect");
 
   };
  
-
   
   return (
     <div className="font-DanaDemiBold min-h-screen bg-gradient-to-t from-[#5d0efa] to-[#ebe7ff] flex flex-col justify-center py-12 sm:px-6 lg:px-8">
