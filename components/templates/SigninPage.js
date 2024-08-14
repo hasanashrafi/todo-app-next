@@ -29,6 +29,7 @@ function SigninPage() {
 
     if (!res.error) router.push("/");
     if (!res.error) toast.success("You are logged in");
+    if (res.error) toast.success(error);
 
   };
  
