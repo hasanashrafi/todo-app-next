@@ -3,21 +3,19 @@ import { useRouter } from "next/router";
 import { signIn, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
-
-import { toast, ToastContainer } from 'react-toastify'
+import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function SigninPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const router = useRouter();
   const { status } = useSession();
 
   useEffect(() => {
     if (status === "authenticated") router.replace("/");
   }, [status]);
-  
+
   const submitHandler = async () => {
     const res = await signIn("credentials", {
       email,
@@ -25,20 +23,21 @@ function SigninPage() {
       redirect: false,
     });
 
-    if (!res.error) router.push("/");
-    if (!res.error) toast.success("You are logged in");
-    if (res.error) toast.error("email or password incorrect");
-
+    if (res.error) {
+      toast.error("Email or password incorrect");
+    } else {
+      toast.success("You are logged in");
+      router.replace("/");
+    }
   };
- 
-  
+
   return (
     <div className="font-DanaDemiBold min-h-screen bg-gradient-to-t from-[#5d0efa] to-[#ebe7ff] flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-     <ToastContainer/>
+      <ToastContainer />
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <Image
-        priority
-          className="mx-auto h-200 w-full "
+          priority
+          className="mx-auto h-200 w-full"
           src="/signin.svg"
           width={100}
           height={400}
@@ -47,8 +46,7 @@ function SigninPage() {
         <h2 className="mt-6 text-center text-3xl leading-9 font-extrabold text-gray-200">
           ورود به حساب کاربری
         </h2>
-
-        <p className="mt-2  text-center text-md leading-5 text-gray-300 max-w">
+        <p className="mt-2 text-center text-md leading-5 text-gray-300 max-w">
           یا
           <Link
             href="/signup"
@@ -62,10 +60,7 @@ function SigninPage() {
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
           <div className="mt-6">
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium leading-5 text-gray-700"
-            >
+            <label htmlFor="email" className="block text-sm font-medium leading-5 text-gray-700">
               ایمیل
             </label>
             <div className="mt-1 relative rounded-md shadow-sm">
@@ -76,27 +71,11 @@ function SigninPage() {
                 type="email"
                 className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
               />
-              <div className="hidden absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-                <svg
-                  className="h-5 w-5 text-red-500"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
-                    clipRule="evenodd"
-                  ></path>
-                </svg>
-              </div>
             </div>
           </div>
 
           <div className="mt-6">
-            <label
-              htmlFor="password"
-              className="block text-sm font-medium leading-5 text-gray-700"
-            >
+            <label htmlFor="password" className="block text-sm font-medium leading-5 text-gray-700">
               رمز
             </label>
             <div className="mt-1 rounded-md shadow-sm">
