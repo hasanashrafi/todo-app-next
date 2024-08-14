@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { Bounce, toast, ToastContainer } from "react-toastify";
 import { signIn, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
-import "react-toastify/dist/ReactToastify.css";
+
+import { toast, ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 function SigninPage() {
   const [email, setEmail] = useState("");
@@ -27,43 +28,33 @@ function SigninPage() {
     });
 
     if (!res.error) router.push("/");
-    setLoginStatus(res);
+    if (!res.error) toast.success("You are logged in");
+
   };
  
-  const notify = () =>
-    toast.success("", {
-      position: "top-center",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-      transition: Bounce
-    });
 
-  if (loginStatus === "success") notify();
+  
   return (
     <div className="font-DanaDemiBold min-h-screen bg-gradient-to-t from-[#5d0efa] to-[#ebe7ff] flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-      {loginStatus === "success" ? <ToastContainer /> : null}
+     <ToastContainer/>
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <Image
+        priority
           className="mx-auto h-200 w-full "
           src="/signin.svg"
           width={100}
           height={400}
           alt="Workflow"
         />
-        <h2 className="mt-6 text-center text-3xl leading-9 font-extrabold text-gray-900">
+        <h2 className="mt-6 text-center text-3xl leading-9 font-extrabold text-gray-200">
           ورود به حساب کاربری
         </h2>
 
-        <p className="mt-2  text-center text-sm leading-5 text-gray-500 max-w">
+        <p className="mt-2  text-center text-md leading-5 text-gray-300 max-w">
           یا
           <Link
             href="/signup"
-            className="mr-1 font-medium text-blue-600 hover:text-blue-500 focus:outline-none focus:underline transition ease-in-out duration-150"
+            className="mr-1 font-medium text-blue-600 hover:text-blue-700 focus:outline-none focus:underline transition ease-in-out duration-150"
           >
             ثبت نام
           </Link>
