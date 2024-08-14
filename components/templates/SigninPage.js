@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { Bounce, toast, ToastContainer } from "react-toastify";
@@ -5,6 +6,7 @@ import { signIn, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import "react-toastify/dist/ReactToastify.css";
+
 function SigninPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -16,6 +18,7 @@ function SigninPage() {
   useEffect(() => {
     if (status === "authenticated") router.replace("/");
   }, [status]);
+
   const submitHandler = async (e) => {
     e.preventDefault();
     const res = await signIn("credentials", {
@@ -29,20 +32,20 @@ function SigninPage() {
   };
   console.log(status);
 
-  const notify = () =>
-    toast.success("", {
-      position: "top-center",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-      transition: Bounce
-    });
+  const notify = () => toast.success("", {
+    position: "top-center",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+    transition: Bounce
+  });
 
   if (loginStatus === "success") notify();
+
   return (
     <div className="font-DanaDemiBold min-h-screen bg-gradient-to-t from-[#5d0efa] to-[#ebe7ff] flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       {loginStatus === "success" ? <ToastContainer /> : null}
@@ -58,7 +61,7 @@ function SigninPage() {
           ورود به حساب کاربری
         </h2>
 
-        <p className="mt-2  text-center text-sm leading-5 text-gray-500 max-w">
+        <p className="mt-2 text-center text-sm leading-5 text-gray-500 max-w">
           یا
           <Link
             href="/signup"
