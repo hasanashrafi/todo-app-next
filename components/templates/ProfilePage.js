@@ -5,6 +5,7 @@ import ProfileForm from '../module/ProfileForm';
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import ProfileInfo from '../module/ProfileInfo';
+import Layout from '../layout/Layout';
 
 
 function ProfilePage() {
@@ -14,7 +15,7 @@ function ProfilePage() {
     const [password, setPassword] = useState("")
     const [profileData, setProfileData] = useState(null)
 
-    
+
     useEffect(() => {
         fetchProfile()
     }, [])
@@ -42,7 +43,7 @@ function ProfilePage() {
         })
 
         const data = await res.json()
-        console.log(data)
+        if (data.status === "failed") toast.error("You are not logged in")
 
         if (data.status === "success") {
             toast.success("User Data Updated")
@@ -53,28 +54,33 @@ function ProfilePage() {
         }
     }
 
-  
+
 
     return (
-        <div className="font-DanaDemiBold min-h-screen bg-gradient-to-t from-[#5d0efa] to-[#ebe7ff] flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-            <ToastContainer />
-            {
-                profileData ? (
-                   <ProfileInfo profileData={profileData} />
-                ) : (
-                    <ProfileForm
-                        submitHandler={submitHandler}
-                        name={name}
-                        lastName={lastName}
-                        phone={phone}
-                        password={password}
-                        setName={setName}
-                        setLastName={setLastName}
-                        setPassword={setPassword}
-                        setPhone={setPhone} />
-                )
-            }
-        </div>
+       
+            <div className='min-h-screen'>
+
+                <div className="font-DanaDemiBold  flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+                    <ToastContainer />
+                    {
+                        profileData ? (
+                            <ProfileInfo profileData={profileData} />
+                        ) : (
+                            <ProfileForm
+                                submitHandler={submitHandler}
+                                name={name}
+                                lastName={lastName}
+                                phone={phone}
+                                password={password}
+                                setName={setName}
+                                setLastName={setLastName}
+                                setPassword={setPassword}
+                                setPhone={setPhone} />
+                        )
+                    }
+                </div>
+            </div>
+       
     )
 }
 
