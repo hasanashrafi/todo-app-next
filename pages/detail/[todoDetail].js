@@ -28,7 +28,7 @@ function Index() {
                     setLoading(false);
                 });
         }
-    }, [id]); // Dependency array includes id
+    }, [id]); 
 
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;
