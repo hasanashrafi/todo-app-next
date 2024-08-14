@@ -13,7 +13,7 @@ function SigninPage() {
   const { status } = useSession();
 
   useEffect(() => {
-    if (status === "authenticated") router.replace("/");
+    if (status === "authenticated") router.push("/");
   }, [status]);
 
   const submitHandler = async () => {
