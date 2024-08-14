@@ -24,7 +24,8 @@ function SigninPage() {
     const res = await signIn("credentials", {
       email,
       password,
-      redirect: false
+      redirect: false,
+      callbackUrl: '/'
     });
 
     if (!res.error) router.push("/");
