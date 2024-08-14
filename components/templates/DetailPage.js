@@ -10,8 +10,6 @@ function DetailPage({ data }) {
     const { title, status, description, _id } = data; 
   
 
-
-
     return (
         <Layout>
             <div className='flex flex-col justify-center w-full min-h-screen p-5 font-DanaMedium'>
