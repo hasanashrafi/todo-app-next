@@ -19,13 +19,13 @@ function DetailPage({ data }) {
                     
                         <>
                             <p className='rounded-md flex items-center gap-x-5 h-10 text-slate-100 bg-green-500'>
-                                <span className='inline-block h-10 p-1 place-content-center text-center w-28 bg-green-600 text-white'>Subject:</span> {title}
+                                <span className='inline-block h-10 p-1 place-content-center text-center w-28 bg-green-600 text-white'>عنوان:</span> {title}
                             </p>
                             <p className='rounded-md flex items-center gap-x-5 h-10 text-slate-100 bg-blue-500'>
-                                <span className='inline-block h-10 p-1 place-content-center text-center w-28 bg-blue-600 text-white'>Status:</span> {status}
+                                <span className='inline-block h-10 p-1 place-content-center text-center w-28 bg-blue-600 text-white'>وضعیت:</span> {status}
                             </p>
                             <p className='rounded-md flex items-center gap-x-5 h-44 text-slate-100 bg-violet-500'>
-                                <span className='inline-block p-1 place-content-center text-center w-28 bg-violet-600 text-white'>Description:</span> {description}
+                                <span className='inline-block p-1 place-content-center text-center w-28 bg-violet-600 text-white'>توضیحات:</span> {description}
                             </p>
                         </>
                 </div>
