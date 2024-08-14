@@ -16,8 +16,7 @@ function AddTodoPage() {
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
     const [status, setStatus] = useState("todo")
-
-    console.log(description)
+  
 
     const addHandler = async (e) => {
         e.preventDefault()
