@@ -6,48 +6,47 @@ import connectDB from "@/utils/connectDB";
 import { verifyPassword } from "@/utils/auth";
 
 const authOptions = {
-  pages: {
-    signIn: "/auth/login",
-    error: "/auth/error",
-  },
   session: { strategy: "jwt" },
   providers: [
     CredentialsProvider({
       async authorize(credentials, req) {
+        console.log('Credentials:', credentials);
+
         const { email, password } = credentials;
 
         try {
-          await connectDB()
+          await connectDB();
+          console.log('Database connection established');
         } catch (error) {
-          throw new Error("Error in connect DB")
+          console.error('Error connecting to database:', error);
+          throw new Error("Error in connecting to DB!");
         }
 
-        if (!email || !password) throw new Error("Enter Email and password")
+        if (!email || !password) {
+          console.error('Invalid credentials');
+          throw new Error("Invalid Data!");
+        }
 
-        const user = await User.findOne({ email: email })
-        if (!user) throw new Error("User doesn't Exist")
+        const user = await User.findOne({ email: email });
+        console.log('User  found:', user);
 
-        const isValid = await verifyPassword(password, user.password)
-        if (!isValid) throw new Error("Email or password incorrect")
+        if (!user) {
+          console.error('User  not found');
+          throw new Error("User  doesn't exist!");
+        }
 
-        return { email: user.email };
+        const isValid = await verifyPassword(password, user.password);
+        console.log('Password verification result:', isValid);
+
+        if (!isValid) {
+          console.error('Invalid password');
+          throw new Error("Username or password is incorrect!");
+        }
+
+        return { email };
       },
     }),
   ],
-  callbacks: {
-    async jwt({ token, user }) {
-      if (user) {
-        token.data = user;
-      }
-      return token;
-    },
-    async session({ session, token }) {
-      if (token.data) {
-        session.user = token.data;
-      }
-      return session;
-    },
-  },
 };
 
 export default NextAuth(authOptions);
