@@ -10,7 +10,7 @@ const authOptions = {
   providers: [
     CredentialsProvider({
       async authorize(credentials, req) {
-        console.log('Credentials:', credentials);
+       
 
         const { email, password } = credentials;
 
