@@ -64,3 +64,20 @@
   }
 }
 
+/* Add mobile-friendly CSS */
+@media (max-width: 768px) {
+  /* Make the form full-width on mobile devices */
+  .form {
+    width: 100%;
+  }
+
+  /* Make the input fields full-width on mobile devices */
+  .input-field {
+    width: 100%;
+  }
+
+  /* Make the buttons full-width on mobile devices */
+  .button {
+    width: 100%;
+  }
+}

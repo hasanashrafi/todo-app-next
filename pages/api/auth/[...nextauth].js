@@ -28,11 +28,11 @@ const authOptions = {
         }
 
         const user = await User.findOne({ email: email });
-        console.log('User  found:', user);
+        console.log('User   found:', user);
 
         if (!user) {
-          console.error('User  not found');
-          throw new Error("User  doesn't exist!");
+          console.error('User   not found');
+          throw new Error("User   doesn't exist!");
         }
 
         const isValid = await verifyPassword(password, user.password);
