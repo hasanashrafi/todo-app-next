@@ -51,7 +51,7 @@ useEffect(() => {
   if (loginStatus === "success") notify();
 
   return (
-    <div className="p-4 font-DanaDemiBold min-h-screen bg-gradient-to-t from-[#5d0efa] to-[#ebe7ff] flex flex-col justify-center sm:px-6 lg:px-8">
+    <div className="p-4 font-DanaDemiBold min-h-screen bg-gradient-to-t from-[#5d0efa] to-[#ebe7ff] flex flex-col justify-start sm:px-6 lg:px-8">
       {loginStatus === "success" ? <ToastContainer /> : null}
       <div className=" sm:mx-auto sm:w-full sm:max-w-md">
         <Image
