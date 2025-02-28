@@ -28,7 +28,10 @@ function SigninPage() {
         callbackUrl: '/',
       });
 
+      console.log('Authentication response:', res);
+
       if (!res.error) {
+        console.log('Login successful');
         toast.success("Login successful", {
           position: "top-center",
           autoClose: 5000,
@@ -42,10 +45,11 @@ function SigninPage() {
         });
         router.push("/");
       } else {
+        console.error('Authentication error:', res.error);
         setLoginStatus(res);
       }
     } catch (error) {
-      console.error(error);
+      console.error('Error logging in:', error);
       toast.error("Error logging in", {
         position: "top-center",
         autoClose: 5000,
