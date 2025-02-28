@@ -19,10 +19,11 @@ function SignupPage() {
     const router = useRouter()
     const { status } = useSession()
 
-    useEffect(() => {
-        if (status === "authenticated") router.replace("/")
-    }, [status])
-
+   useEffect(() => {
+    if (status === "authenticated") {
+        router.replace("/")
+    }
+}, [status, router])
     const submitHandler = async () => {
        
         const res = await fetch("/api/auth/signup", {
