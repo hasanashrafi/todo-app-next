@@ -1,3 +1,4 @@
+"use client"
 
 import { useSession } from 'next-auth/react';
 import Image from 'next/image';
@@ -22,8 +23,8 @@ function SignupPage() {
         if (status === "authenticated") router.replace("/")
     }, [status])
 
-    const submitHandler = async (e) => {
-        e.preventDefault()
+    const submitHandler = async () => {
+       
         const res = await fetch("/api/auth/signup", {
             method: "POST",
             body: JSON.stringify({
