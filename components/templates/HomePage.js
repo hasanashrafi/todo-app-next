@@ -15,7 +15,7 @@ function HomePage() {
     }
     return (
         <div className=' flex flex-wrap justify-center w-full'>
-            <div className=' backdrop-blur-lg
+            <div className=' 
                [ p-8 md:p-10 lg:p-10 ]
                [ bg-gradient-to-b from-white/60 to-white/30 ]
                [ border-[1px] border-solid border-white border-opacity-30 ]
@@ -25,7 +25,7 @@ function HomePage() {
            
             </div>
 
-            <div className=' backdrop-blur-lg
+            <div className=' 
                [ p-8 md:p-10 lg:p-10 ]
                [ bg-gradient-to-b from-white/60 to-white/30 ]
                [ border-[1px] border-solid border-white border-opacity-30 ]
@@ -34,7 +34,7 @@ function HomePage() {
                 <Tasks data={todos.inprogress} fetchTodos={fetchTodos} next="review" back="todo"/>
             </div>
 
-            <div className=' backdrop-blur-lg
+            <div className=' 
                [ p-8 md:p-10 lg:p-10 ]
                [ bg-gradient-to-b from-white/60 to-white/30 ]
                [ border-[1px] border-solid border-white border-opacity-30 ]
@@ -43,7 +43,7 @@ function HomePage() {
                 <Tasks data={todos.review} fetchTodos={fetchTodos} next="done" back="inprogress"/>
             </div>
             
-            <div className=' backdrop-blur-lg
+            <div className=' 
                [ p-8 md:p-10 lg:p-10 ]
                [ bg-gradient-to-b from-white/60 to-white/30 ]
                [ border-[1px] border-solid border-white border-opacity-30 ]

@@ -16,11 +16,11 @@ function SigninPage() {
   const router = useRouter();
   const { status } = useSession();
 
-useEffect(() => {
-  if (status === "authenticated") {
-    router.replace("/");
-  }
-}, [status, router]);
+  useEffect(() => {
+    if (status === "authenticated") {
+      router.push("/");
+    }
+  }, [status, router]);
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -43,7 +43,7 @@ useEffect(() => {
     theme: "light",
     transition: Bounce
   });
-  router.replace("/");
+  router.push("/");
 }
     setLoginStatus(res);
   };
@@ -72,6 +72,7 @@ useEffect(() => {
           src="/signin.svg"
           width={100}
           height={400}
+          priority
           alt="Workflow"
         />
         <h2 className="text-white mt-6 text-center text-3xl leading-9 font-extrabold ">

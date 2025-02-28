@@ -20,7 +20,7 @@ function SignupPage() {
 
     useEffect(() => {
         if (status === "authenticated") {
-            router.replace("/");
+            router.push("/");
         }
     }, [status, router]);
 
@@ -49,6 +49,7 @@ function SignupPage() {
             <ToastContainer />
             <div className="sm:mx-auto sm:w-full sm:max-w-md">
                 <Image
+                
                     className="mx-auto h-[200px] w-full"
                     src="/signup.svg"
                     width={100}
