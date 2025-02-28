@@ -51,17 +51,17 @@ useEffect(() => {
   if (loginStatus === "success") notify();
 
   return (
-    <div className="font-DanaDemiBold min-h-screen bg-gradient-to-t from-[#5d0efa] to-[#ebe7ff] flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+    <div className="p-4 font-DanaDemiBold min-h-screen bg-gradient-to-t from-[#5d0efa] to-[#ebe7ff] flex flex-col justify-center sm:px-6 lg:px-8">
       {loginStatus === "success" ? <ToastContainer /> : null}
-      <div className="sm:mx-auto sm:w-full sm:max-w-md">
+      <div className=" sm:mx-auto sm:w-full sm:max-w-md">
         <Image
-          className="mx-auto h-200 w-full "
+          className="mx-auto h-[200px] w-full "
           src="/signin.svg"
           width={100}
           height={400}
           alt="Workflow"
         />
-        <h2 className="mt-6 text-center text-3xl leading-9 font-extrabold text-gray-900">
+        <h2 className="text-white mt-6 text-center text-3xl leading-9 font-extrabold ">
           ورود به حساب کاربری
         </h2>
 
@@ -76,8 +76,8 @@ useEffect(() => {
         </p>
       </div>
 
-      <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+      <div className=" mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+        <div className="rounded-md bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
           <div className="mt-6">
             <label
               htmlFor="email"
