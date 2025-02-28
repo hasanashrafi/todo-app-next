@@ -31,7 +31,20 @@ useEffect(() => {
       callbackUrl: '/'
     });
 
-    if (!res.error) router.replace("/");
+    if (!res.error) {
+  toast.success("Login successful", {
+    position: "top-center",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+    transition: Bounce
+  });
+  router.replace("/");
+}
     setLoginStatus(res);
   };
   console.log(status);
