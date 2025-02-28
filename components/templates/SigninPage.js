@@ -65,14 +65,14 @@ function SigninPage() {
       <ToastContainer />
       <div className="p-4 font-DanaDemiBold min-h-screen bg-gradient-to-t from-[#5d0efa] to-[#ebe7ff] flex flex-col justify-start sm:px-6 lg:px-8">
         <div className=" sm:mx-auto sm:w-full sm:max-w-md">
-          <Image
+          {/* <Image
             className="mx-auto h-[200px] w-full "
             src="/signin.svg"
             width={100}
             height={400}
             priority
             alt="Workflow"
-          />
+          /> */}
           <h2 className="text-white mt-6 text-center text-3xl leading-9 font-extrabold ">
             ورود به حساب کاربری
           </h2>
