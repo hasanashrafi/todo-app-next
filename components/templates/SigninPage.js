@@ -1,3 +1,4 @@
+"use client"
 
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
@@ -28,7 +29,7 @@ function SigninPage() {
       callbackUrl: '/'
     });
 
-    if (!res.error) router.push("/");
+    if (!res.error) router.replace("/");
     setLoginStatus(res);
   };
   console.log(status);
