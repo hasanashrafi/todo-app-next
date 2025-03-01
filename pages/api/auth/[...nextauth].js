@@ -6,19 +6,8 @@ import connectDB from "@/utils/connectDB";
 import { verifyPassword } from "@/utils/auth";
 
 const authOptions = {
-  session: {
-    strategy: "jwt",
-    callback: async (session, token) => {
-      if (session.user) {
-        // Redirect to '/' after successful login
-        return {
-          redirect: '/',
-        };
-      }
-      return session;
-    },
-  },
-
+  session: { strategy: "jwt" },
+  
   providers: [
     CredentialsProvider({
       async authorize(credentials, req) {

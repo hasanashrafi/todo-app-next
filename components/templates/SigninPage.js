@@ -8,7 +8,6 @@ import Image from "next/image";
 import Link from "next/link";
 import "react-toastify/dist/ReactToastify.css";
 import { BsEye, BsEyeSlash } from "react-icons/bs";
-import Head from "next/head";
 
 function SigninPage() {
   const [email, setEmail] = useState("");
@@ -31,7 +30,8 @@ function SigninPage() {
       const res = await signIn("credentials", {
         email,
         password,
-      
+        redirect: false,
+        callbackUrl: '/',
       });
 
       console.log('Authentication response:', res);
@@ -76,11 +76,6 @@ function SigninPage() {
 
   return (
     <div>
-      <Head>
-        <meta httpEquiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-        <meta httpEquiv="Pragma" content="no-cache" />
-        <meta httpEquiv="Expires" content="0" />
-      </Head>
       <ToastContainer />
       <div className="p-4  min-h-screen bg-gradient-to-t from-[#5d0efa] to-[#ebe7ff] flex flex-col justify-start sm:px-6 lg:px-8">
         <div className=" sm:mx-auto sm:w-full sm:max-w-md">
