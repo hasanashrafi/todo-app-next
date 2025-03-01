@@ -26,11 +26,11 @@ function SigninPage() {
       const res = await signIn("credentials", {
         email,
         password,
-       
+        redirect: false,
+        callbackUrl: '/',
       });
 
       console.log('Authentication response:', res);
-      router.replace("/");
 
       if (!res.error) {
         console.log('با موفقیت وارد شدید!');
@@ -45,6 +45,7 @@ function SigninPage() {
           theme: "light",
           transition: Bounce,
         });
+        router.push("/");
       } else {
         console.error('Authentication error:', res.error);
         setLoginStatus(res);
@@ -113,7 +114,7 @@ function SigninPage() {
                     setLoginStatus("");
                   }}
                   placeholder="user@example.com"
-                  type="email"
+                  type="text"
                   className=" appearance-none block w-[93%] px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
                 />
                 <div className="hidden absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
@@ -168,7 +169,6 @@ function SigninPage() {
                   ورود
                 </button>
               </span>
-              <Link href="/" className="p-2 m-2 rounded bg-blue-500 border mx-auto block text-center">home</Link>
             </div>
           </div>
         </div>
