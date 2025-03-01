@@ -12,7 +12,6 @@ import { BsEye, BsEyeSlash } from "react-icons/bs";
 function SigninPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [loginStatus, setLoginStatus] = useState("");
   const [showPassword, setShowPassword] = useState(false)
 
   const router = useRouter();
@@ -29,8 +28,8 @@ function SigninPage() {
         redirect: false,
         callbackUrl: '/',
       });
-      if (res.status === 200) router.push("/");
 
+      if (res.ok) router.push("/");
 
       console.log('Authentication response:', res);
 
@@ -50,7 +49,7 @@ function SigninPage() {
         router.push("/");
       } else {
         console.error('Authentication error:', res.error);
-        setLoginStatus(res);
+       
       }
     } catch (error) {
       console.error('Error logging in:', error);
@@ -114,7 +113,7 @@ function SigninPage() {
                   value={email}
                   onChange={(e) => {
                     setEmail(e.target.value);
-                    setLoginStatus("");
+                    
                   }}
                   placeholder="user@example.com"
                   type="text"
@@ -148,7 +147,7 @@ function SigninPage() {
                   value={password}
                   onChange={(e) => {
                     setPassword(e.target.value);
-                    setLoginStatus("");
+                   
                   }}
                   id="password"
                   name="password"
