@@ -30,8 +30,8 @@ function Index() {
         }
     }, [id]); 
 
-    if (loading) return <div>Loading...</div>;
-    if (error) return <div>Error: {error}</div>;
+    if (loading) return <div className='min-h-screen flex items-center justify-center text-white text-4xl font-semibold font-Dana'>در حال بارگذاری...</div>;
+    if (error) return <div className='min-h-screen flex items-center justify-center text-white text-4xl font-semibold'>Error: {error}</div>;
 
     return <DetailPage data={data} />;
 }

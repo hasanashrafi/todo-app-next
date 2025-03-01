@@ -33,8 +33,8 @@ function SigninPage() {
       console.log('Authentication response:', res);
 
       if (!res.error) {
-        console.log('با موفقیت ولرد شدید!');
-        toast.success("Login successful", {
+        console.log('با موفقیت وارد شدید!');
+        toast.success("با موفقیت وارد شدید!", {
           position: "top-center",
           autoClose: 5000,
           hideProgressBar: false,
