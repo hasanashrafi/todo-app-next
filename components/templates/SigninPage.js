@@ -26,8 +26,7 @@ function SigninPage() {
       const res = await signIn("credentials", {
         email,
         password,
-        redirect: "/",
-        callbackUrl: '/',
+       
       });
 
       console.log('Authentication response:', res);
