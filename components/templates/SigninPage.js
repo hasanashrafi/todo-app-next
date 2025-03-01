@@ -5,11 +5,13 @@ import { signIn, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import "react-toastify/dist/ReactToastify.css";
+import { BsEye, BsEyeSlash } from "react-icons/bs";
 
 function SigninPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loginStatus, setLoginStatus] = useState("");
+  const [showPassword, setShowPassword] = useState(false)
 
   const router = useRouter();
   const { status } = useSession();
@@ -31,7 +33,7 @@ function SigninPage() {
       console.log('Authentication response:', res);
 
       if (!res.error) {
-        console.log('Login successful');
+        console.log('با موفقیت ولرد شدید!');
         toast.success("Login successful", {
           position: "top-center",
           autoClose: 5000,
@@ -64,6 +66,9 @@ function SigninPage() {
     }
   };
 
+  const showingPassword = () => {
+    setShowPassword((prevShowPassword) => !prevShowPassword);
+  }
   return (
     <div>
       <ToastContainer />
@@ -110,7 +115,7 @@ function SigninPage() {
                   }}
                   placeholder="user@example.com"
                   type="email"
-                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+                  className=" appearance-none block w-[93%] px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
                 />
                 <div className="hidden absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
                   <svg
@@ -135,7 +140,7 @@ function SigninPage() {
               >
                 رمز
               </label>
-              <div className="mt-1 rounded-md shadow-sm">
+              <div className="flex items-center gap-x-2 mt-1 rounded-md shadow-sm">
                 <input
                   value={password}
                   onChange={(e) => {
@@ -144,9 +149,14 @@ function SigninPage() {
                   }}
                   id="password"
                   name="password"
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
                 />
+                {showPassword ? (
+                  <BsEye onClick={showingPassword} className="text-xl" />
+                ) : (
+                  <BsEyeSlash onClick={showingPassword} className="text-xl" />
+                )}
               </div>
             </div>
 
