@@ -18,9 +18,12 @@ const authOptions = {
       return session;
     },
   },
+
   providers: [
     CredentialsProvider({
       async authorize(credentials, req) {
+       
+
         const { email, password } = credentials;
 
         try {
@@ -37,11 +40,11 @@ const authOptions = {
         }
 
         const user = await User.findOne({ email: email });
-        console.log('User  found:', user);
+        console.log('User   found:', user);
 
         if (!user) {
-          console.error('User  not found');
-          throw new Error("User  doesn't exist!");
+          console.error('User   not found');
+          throw new Error("User   doesn't exist!");
         }
 
         const isValid = await verifyPassword(password, user.password);
@@ -56,20 +59,6 @@ const authOptions = {
       },
     }),
   ],
-  callbacks: {
-    async jwt(token, user, account, profile, isNewUser ) {
-      // Persist the user ID to the token right after signin
-      if (user) {
-        token.id = user.id;
-      }
-      return token;
-    },
-    async session(session, token) {
-      // Send properties to the client, like an access token from a provider.
-      session.user.id = token.id;
-      return session;
-    },
-  },
 };
 
 export default NextAuth(authOptions);

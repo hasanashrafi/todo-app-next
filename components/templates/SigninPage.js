@@ -31,7 +31,7 @@ function SigninPage() {
       const res = await signIn("credentials", {
         email,
         password,
-        url:"/"
+      
       });
 
       console.log('Authentication response:', res);
