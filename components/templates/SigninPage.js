@@ -31,8 +31,7 @@ function SigninPage() {
       const res = await signIn("credentials", {
         email,
         password,
-        redirect: true,
-        callbackUrl: '/',
+        url:"/"
       });
 
       console.log('Authentication response:', res);
