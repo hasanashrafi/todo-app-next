@@ -1,10 +1,9 @@
 "use client"
 
-import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router'
-import React, { useEffect, useState } from 'react'
+import React, {  useState } from 'react'
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -16,14 +15,9 @@ function SignupPage() {
     const [password, setPassword] = useState("");
 
     const router = useRouter();
-    const { status } = useSession();
+    
 
-    useEffect(() => {
-        if (status === "authenticated") {
-            router.push("/");
-        }
-    }, [status, router]);
-
+  
     const submitHandler = async () => {
         const res = await fetch("/api/auth/signup", {
             method: "POST",

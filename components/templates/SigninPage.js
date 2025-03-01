@@ -1,6 +1,6 @@
-'use client'
 
-import React, { useEffect, useState } from "react";
+
+import React, { useState } from "react";
 import { useRouter } from "next/router";
 import { Bounce, toast, ToastContainer } from "react-toastify";
 import { signIn, useSession } from "next-auth/react";
@@ -17,12 +17,8 @@ function SigninPage() {
 
   const router = useRouter();
   const { status } = useSession();
+  console.log(status)
 
-  useEffect(() => {
-    if (status === 'authenticated') {
-      router.push('/');
-    }
-  }, [status, router]);
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -33,6 +29,8 @@ function SigninPage() {
         redirect: false,
         callbackUrl: '/',
       });
+      if (res.status === 200) router.push("/");
+
 
       console.log('Authentication response:', res);
 
