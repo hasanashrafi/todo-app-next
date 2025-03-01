@@ -26,12 +26,12 @@ function SigninPage() {
       const res = await signIn("credentials", {
         email,
         password,
-        redirect: false,
+        redirect: "/",
         callbackUrl: '/',
       });
 
       console.log('Authentication response:', res);
-      router.push("/");
+      router.replace("/");
 
       if (!res.error) {
         console.log('با موفقیت وارد شدید!');
@@ -169,6 +169,7 @@ function SigninPage() {
                   ورود
                 </button>
               </span>
+              <Link href="/" className="p-2 m-2 rounded bg-blue-500 border mx-auto block text-center">home</Link>
             </div>
           </div>
         </div>
