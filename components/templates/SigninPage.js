@@ -31,6 +31,7 @@ function SigninPage() {
       });
 
       console.log('Authentication response:', res);
+      router.push("/");
 
       if (!res.error) {
         console.log('با موفقیت وارد شدید!');
@@ -45,7 +46,6 @@ function SigninPage() {
           theme: "light",
           transition: Bounce,
         });
-        router.push("/");
       } else {
         console.error('Authentication error:', res.error);
         setLoginStatus(res);
